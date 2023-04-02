@@ -1,6 +1,13 @@
 pipeline {
     agent any
     stages {
+
+        stage('Pull GitHub Code'){
+            steps{
+                git 'https://github.com/yakir1992/exchange-app'
+            }
+        }
+
         stage('Build') {
             steps {
                 sh "docker build -t exchange-app ."
@@ -8,7 +15,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "docker run -d -p 8080:80 exchange-app"
+                sh "docker run -d -p 80:5000 exchange-app"
             }
         }
         stage('Test') {
