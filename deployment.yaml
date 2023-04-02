@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: exchange-application
+spec:
+  containers:
+  - name: exchange-application
+    image: yakir1992/exchange-app:1.0
+    ports: 
+    - containerPort: 80

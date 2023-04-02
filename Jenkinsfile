@@ -16,6 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "docker build -t yakir1992/exchange-app:1.0" .
+                sh "docker tag yakir1992/exchange-app:1.0" .
                 sh "docker push yakir1992/exchange-app:1.0"    
             }
         stage('Deploy') {
